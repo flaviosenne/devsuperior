@@ -1,15 +1,22 @@
 package com.devsuperior.dsmeta.properties;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "twilio")
 public class TwilioProperties {
 
+    @Value("${twilio.sid}")
     private String sid;
+
+    @Value("${twilio.key}")
     private String key;
+
+    @Value("${twilio.phoneFrom}")
     private String phoneFrom;
+
+    @Value("${twilio.phoneTo}")
     private String phoneTo;
 
 
@@ -18,6 +25,10 @@ public class TwilioProperties {
         this.key = key;
         this.phoneFrom = phoneFrom;
         this.phoneTo = phoneTo;
+    }
+
+    public TwilioProperties(){
+
     }
 
 
